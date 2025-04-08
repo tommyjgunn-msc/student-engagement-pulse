@@ -3,19 +3,11 @@ import { sendTimedClassEngagementEmails } from '../../lib/email';
 
 export default async function handler(req, res) {
   try {
-    // Verify this is a cron job request
-    const { authorization } = req.headers;
+    // Verify this request is authorized
+    const { apiKey } = req.query;
     
-    // Use a different authorization token for local testing if needed
-    if (process.env.NODE_ENV === 'development') {
-      // Allow specific test query parameter for development
-      if (req.query.test !== process.env.CRON_TEST_KEY) {
-        // For local testing, we can bypass auth if it's a specific testing scenario
-        if (!req.query.bypassAuth) {
-          return res.status(401).json({ error: 'Unauthorized for testing' });
-        }
-      }
-    } else if (authorization !== `Bearer ${process.env.CRON_SECRET}`) {
+    // Check if API key is valid (should match your environment variable)
+    if (apiKey !== process.env.API_KEY) {
       return res.status(401).json({ error: 'Unauthorized' });
     }
     
