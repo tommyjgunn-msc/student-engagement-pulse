@@ -1,0 +1,25 @@
+{
+  "name": "student-engagement-pulse",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "chart.js": "^4.4.8",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "googleapis": "^148.0.0",
+    "jsonwebtoken": "^9.0.2",
+    "next": "^15.2.4",
+    "nodemailer": "^6.10.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  }
+}
